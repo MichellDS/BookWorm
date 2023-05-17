@@ -140,7 +140,7 @@ packages:
     source: sdk
     version: "0.0.0"
   google_books_api:
-    dependency: "direct main"
+    dependency: "direct dev"
     description:
       name: google_books_api
       sha256: c8803e281ffc6fe7f920a1569be0be6b918c4fd89508c73e08cc0cbb55dcbcb5
