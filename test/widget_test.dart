@@ -10,21 +10,23 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:bookworm/main.dart';
 
+import 'package:google_books_api/google_books_api.dart';
+
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  test('search books', () async {
+    final List<Book> books = await GoogleBooksApi().searchBooks(
+      'a',
+      maxResults: 20,
+      printType: PrintType.books,
+      orderBy: OrderBy.relevance,
+    );
+    expect(books.length, 20);
+    print(books);
+  });
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
-
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
-
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+  test('get book by id', () async {
+    final Book book = await GoogleBooksApi().getBookById('H0taAAAAYAAJ');
+    expect(book.volumeInfo.title,
+        'A Study of Income and Expenditures in Sixty Colleges. Year 1953-54');
   });
 }
