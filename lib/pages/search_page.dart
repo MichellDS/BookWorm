@@ -17,21 +17,33 @@ class SearchPage extends StatefulWidget {
 }
 
 class _SearchPageState extends State<SearchPage> {
+  void _SearchBook() {}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         padding: const EdgeInsets.all(16),
-        child: ListView(
+        child: Column(
           children: [
             const TextField(),
             const SizedBox(
               height: 16,
             ),
             ElevatedButton.icon(
-                onPressed: () {},
+                onPressed: _SearchBook,
                 icon: Icon(Icons.search),
-                label: Text('Pesquisar'))
+                label: Text('Pesquisar')),
+            Scrollbar(
+                child: ListView.builder(
+              itemCount: 1,
+              itemBuilder: (BuildContext context, int index) {
+                return ListTile(
+                  title: Text('Teste'),
+                  onTap: () {},
+                );
+              },
+            )),
           ],
         ),
       ),
