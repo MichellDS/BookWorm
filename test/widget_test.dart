@@ -5,27 +5,25 @@
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
 
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:bookworm/main.dart';
 
 import 'package:google_books_api/google_books_api.dart';
 
 void main() {
   test('search books', () async {
-    final List<Book> books = await GoogleBooksApi().searchBooks(
+    final List<Book> books = await const GoogleBooksApi().searchBooks(
       'a',
       maxResults: 20,
       printType: PrintType.books,
       orderBy: OrderBy.relevance,
     );
     expect(books.length, 20);
+    // ignore: avoid_print
     print(books);
   });
 
   test('get book by id', () async {
-    final Book book = await GoogleBooksApi().getBookById('H0taAAAAYAAJ');
+    final Book book = await const GoogleBooksApi().getBookById('H0taAAAAYAAJ');
     expect(book.volumeInfo.title,
         'A Study of Income and Expenditures in Sixty Colleges. Year 1953-54');
   });
