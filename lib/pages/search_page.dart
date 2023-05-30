@@ -1,6 +1,7 @@
-import 'package:bookworm/models/books.dart';
+import 'package:bookworm/models/bookWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_books_api/google_books_api.dart';
+import 'package:simple_gradient_text/simple_gradient_text.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
@@ -18,12 +19,12 @@ class _SearchPageState extends State<SearchPage> {
     // ignore: avoid_print
     print(_controller.text);
 
-    books = await GoogleBooksApi().searchBooks(
+    books = (await const GoogleBooksApi().searchBooks(
       _controller.text,
-      maxResults: 10,
+      maxResults: 1,
       printType: PrintType.books,
       orderBy: OrderBy.relevance,
-    );
+    ));
 
     setState(() {
       books = books;
@@ -36,14 +37,31 @@ class _SearchPageState extends State<SearchPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/bookshelf.png'),
+            fit: BoxFit.fitHeight,
+            repeat: ImageRepeat.repeat,
+          ),
+        ),
         padding: const EdgeInsets.all(20),
         alignment: Alignment.center,
         child: Column(
           children: [
-            // Container(
-            //   height: 400,
-            //   color: Colors.black,
-            // ),
+            GradientText(
+              'BookWorm',
+              style: TextStyle(
+                fontSize: 80,
+                foreground: Paint()
+                  ..style = PaintingStyle.stroke
+                  ..strokeWidth = 5
+                  ..color = Colors.blue[100]!,
+              ),
+              colors: const [
+                Colors.white,
+                Colors.blueAccent,
+              ],
+            ),
             Container(
               alignment: Alignment.center,
               width: 600,
@@ -53,7 +71,7 @@ class _SearchPageState extends State<SearchPage> {
                   filled: true,
                   fillColor: Colors.white,
                   prefixIcon: const Icon(Icons.search),
-                  hintText: 'Titulo dos Livrozs',
+                  hintText: 'Titulo dos Livros',
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(50),
                       borderSide: const BorderSide(color: Colors.black)),
@@ -63,10 +81,16 @@ class _SearchPageState extends State<SearchPage> {
             ),
             Expanded(
               child: ListView.builder(
-                  itemCount: books.length,
-                  itemBuilder: (context, index) {
-                    return Column();
-                  }),
+                itemCount: books.length,
+                itemBuilder: (context, index) {
+                  return const BookWidget(
+                    title: '23',
+                    subtitle: 'subtible',
+                    cape:
+                        'http://books.google.com/books/content?id=Q6Q7DwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
+                  );
+                },
+              ),
             ),
           ],
         ),
