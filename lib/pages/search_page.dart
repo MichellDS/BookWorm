@@ -1,7 +1,13 @@
+library google_books;
+
 import 'package:bookworm/models/bookWidget.dart';
+//import 'package:bookworm/src/finder.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:google_books_api/google_books_api.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
+import 'package:google_books_api/google_books_api.dart';
+
+export 'package:bookworm/src/finder.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
@@ -12,14 +18,14 @@ class SearchPage extends StatefulWidget {
 
 class _SearchPageState extends State<SearchPage> {
   final _controller = TextEditingController();
-  List<Book> books = [];
+  List<Book> book = [];
 
   // ignore: non_constant_identifier_names
   void _SearchBook() async {
     // ignore: avoid_print
     print(_controller.text);
 
-    books = (await const GoogleBooksApi().searchBooks(
+    book = (await const GoogleBooksApi().searchBooks(
       _controller.text,
       maxResults: 1,
       printType: PrintType.books,
@@ -27,11 +33,30 @@ class _SearchPageState extends State<SearchPage> {
     ));
 
     setState(() {
-      books = books;
+      book = book;
     });
     // ignore: avoid_print
-    print(books);
+    print(book);
   }
+
+  // ignore: non_constant_identifier_names
+  // void _SearchBook() async {
+  //   if (kDebugMode) {
+  //     print(_controller.text);
+  //   }
+
+  //   book = await queryBooks(
+  //     _controller.text,
+  //     maxResults: 1,
+  //     printType: PrintType.all,
+  //     orderBy: OrderBy.relevance,
+  //   );
+  //   setState(() {
+  //     book = book;
+  //   });
+  //   // ignore: avoid_print
+  //   print(book);
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -81,13 +106,17 @@ class _SearchPageState extends State<SearchPage> {
             ),
             Expanded(
               child: ListView.builder(
-                itemCount: books.length,
+                itemCount: book.length,
                 itemBuilder: (context, index) {
                   return const BookWidget(
-                    title: '23',
-                    subtitle: 'subtible',
+                    title: 'MyBook.fromJson(json)', //'Solo leveling',
+                    subtitle: 'subtitle',
                     cape:
-                        'http://books.google.com/books/content?id=Q6Q7DwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
+                        '', //'https://i.pinimg.com/originals/d2/20/be/d220bed248df7e9c238196e5b944e3e4.jpg',
+                    authors: 'Chugong',
+                    categories: 'Manga',
+                    description:
+                        'Um grande fenômeno um dia aconteceu, portais desconhecidos surgiram ligando o mundo que conhecemos a uma realidade totalmente extraordinária de monstros e seres fantasiosos, cujo único objetivo era matar humanos. Em resposta a esse novo perigo, surgiram os “Caçadores”, humanos que foram “despertados” e ganharam poderes capazes de bater de frente com essas criaturas. Dentre eles, há um conhecido por ser “a pior arma da humanidade”, Sung Jin-woo. Mas sua sorte irá mudar quando uma incursão que deveria ser fácil se torna um verdadeiro pesadelo.',
                   );
                 },
               ),
