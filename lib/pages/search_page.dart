@@ -1,13 +1,9 @@
-library google_books;
-
 import 'package:bookworm/models/bookWidget.dart';
-//import 'package:bookworm/src/finder.dart';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'package:google_books_api/google_books_api.dart';
-
-export 'package:bookworm/src/finder.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
@@ -29,7 +25,7 @@ class _SearchPageState extends State<SearchPage> {
 
     books = (await const GoogleBooksApi().searchBooks(
       _controller.text,
-      maxResults: 1,
+      maxResults: 2,
       printType: PrintType.books,
       orderBy: OrderBy.relevance,
     ));
@@ -40,25 +36,6 @@ class _SearchPageState extends State<SearchPage> {
     // ignore: avoid_print
     print(books);
   }
-
-  // ignore: non_constant_identifier_names
-  // void _SearchBook() async {
-  //   if (kDebugMode) {
-  //     print(_controller.text);
-  //   }
-
-  //   book = await queryBooks(
-  //     _controller.text,
-  //     maxResults: 1,
-  //     printType: PrintType.all,
-  //     orderBy: OrderBy.relevance,
-  //   );
-  //   setState(() {
-  //     book = book;
-  //   });
-  //   // ignore: avoid_print
-  //   print(book);
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -110,15 +87,19 @@ class _SearchPageState extends State<SearchPage> {
               child: ListView.builder(
                 itemCount: books.length,
                 itemBuilder: (context, index) {
+                  var imageLinks;
+                  if (books[index].volumeInfo.imageLinks != null &&
+                      books[index].volumeInfo.imageLinks!.length > 0) {
+                    imageLinks =
+                        books[index].volumeInfo.imageLinks!.entries.first.value;
+                  }
                   return BookWidget(
-                    title: books[index].volumeInfo.title, //'Solo leveling',
+                    title: books[index].volumeInfo.title,
                     subtitle: books[index].volumeInfo.subtitle,
-                    cape:
-                        '', //'https://i.pinimg.com/originals/d2/20/be/d220bed248df7e9c238196e5b944e3e4.jpg',
-                    authors: 'Chugong',
-                    categories: 'Manga',
-                    description:
-                        'Um grande fenômeno um dia aconteceu, portais desconhecidos surgiram ligando o mundo que conhecemos a uma realidade totalmente extraordinária de monstros e seres fantasiosos, cujo único objetivo era matar humanos. Em resposta a esse novo perigo, surgiram os “Caçadores”, humanos que foram “despertados” e ganharam poderes capazes de bater de frente com essas criaturas. Dentre eles, há um conhecido por ser “a pior arma da humanidade”, Sung Jin-woo. Mas sua sorte irá mudar quando uma incursão que deveria ser fácil se torna um verdadeiro pesadelo.',
+                    cape: imageLinks,
+                    authors: books[index].volumeInfo.authors.join(' '),
+                    categories: books[index].volumeInfo.categories.join(' '),
+                    description: books[index].volumeInfo.description,
                   );
                 },
               ),

@@ -33,7 +33,8 @@ class BookWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Image.network(
-              cape ?? "",
+              cape ??
+                  "https://i.pinimg.com/originals/fc/a7/35/fca735f1b45049fd58cebf23e249edc9.jpg",
               height: 150,
               width: 100,
               fit: BoxFit.cover,
