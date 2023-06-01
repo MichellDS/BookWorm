@@ -18,14 +18,16 @@ class SearchPage extends StatefulWidget {
 
 class _SearchPageState extends State<SearchPage> {
   final _controller = TextEditingController();
-  List<Book> book = [];
+  List<Book> books = [];
 
   // ignore: non_constant_identifier_names
   void _SearchBook() async {
     // ignore: avoid_print
     print(_controller.text);
 
-    book = (await const GoogleBooksApi().searchBooks(
+    if (_controller.text == "") return;
+
+    books = (await const GoogleBooksApi().searchBooks(
       _controller.text,
       maxResults: 1,
       printType: PrintType.books,
@@ -33,10 +35,10 @@ class _SearchPageState extends State<SearchPage> {
     ));
 
     setState(() {
-      book = book;
+      books = books;
     });
     // ignore: avoid_print
-    print(book);
+    print(books);
   }
 
   // ignore: non_constant_identifier_names
@@ -106,11 +108,11 @@ class _SearchPageState extends State<SearchPage> {
             ),
             Expanded(
               child: ListView.builder(
-                itemCount: book.length,
+                itemCount: books.length,
                 itemBuilder: (context, index) {
-                  return const BookWidget(
-                    title: 'MyBook.fromJson(json)', //'Solo leveling',
-                    subtitle: 'subtitle',
+                  return BookWidget(
+                    title: books[index].volumeInfo.title, //'Solo leveling',
+                    subtitle: books[index].volumeInfo.subtitle,
                     cape:
                         '', //'https://i.pinimg.com/originals/d2/20/be/d220bed248df7e9c238196e5b944e3e4.jpg',
                     authors: 'Chugong',
