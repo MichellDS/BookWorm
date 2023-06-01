@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'package:google_books_api/google_books_api.dart';
 
+export 'package:bookworm/models/bookWidget.dart';
+
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
 
