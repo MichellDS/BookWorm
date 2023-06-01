@@ -1,7 +1,4 @@
-// ignore_for_file: file_names
-
 import 'package:bookworm/pages/library_page.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class BookWidget extends StatelessWidget {
@@ -26,15 +23,14 @@ class BookWidget extends StatelessWidget {
           Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => LibraryPage(),
+                builder: (context) => const LibraryPage(),
               ));
         },
         title: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Image.network(
-              cape ??
-                  "https://i.pinimg.com/originals/fc/a7/35/fca735f1b45049fd58cebf23e249edc9.jpg",
+              cape ?? "",
               height: 150,
               width: 100,
               fit: BoxFit.cover,

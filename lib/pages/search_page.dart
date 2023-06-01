@@ -1,6 +1,4 @@
 import 'package:bookworm/models/bookWidget.dart';
-
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'package:google_books_api/google_books_api.dart';
@@ -25,7 +23,7 @@ class _SearchPageState extends State<SearchPage> {
 
     books = (await const GoogleBooksApi().searchBooks(
       _controller.text,
-      maxResults: 2,
+      maxResults: 30,
       printType: PrintType.books,
       orderBy: OrderBy.relevance,
     ));
@@ -87,18 +85,22 @@ class _SearchPageState extends State<SearchPage> {
               child: ListView.builder(
                 itemCount: books.length,
                 itemBuilder: (context, index) {
-                  var imageLinks;
+                  Uri? imageLinks;
                   if (books[index].volumeInfo.imageLinks != null &&
-                      books[index].volumeInfo.imageLinks!.length > 0) {
+                      books[index].volumeInfo.imageLinks!.isNotEmpty) {
                     imageLinks =
                         books[index].volumeInfo.imageLinks!.entries.first.value;
                   }
+
+                  String cape;
+                  cape = imageLinks.toString();
+
                   return BookWidget(
                     title: books[index].volumeInfo.title,
                     subtitle: books[index].volumeInfo.subtitle,
-                    cape: imageLinks,
-                    authors: books[index].volumeInfo.authors.join(' '),
-                    categories: books[index].volumeInfo.categories.join(' '),
+                    cape: cape,
+                    authors: books[index].volumeInfo.authors.join(', '),
+                    categories: books[index].volumeInfo.categories.join(', '),
                     description: books[index].volumeInfo.description,
                   );
                 },
