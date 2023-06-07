@@ -44,6 +44,7 @@ class _SearchPageState extends State<SearchPage> {
             image: AssetImage('assets/bookshelf.png'),
             fit: BoxFit.fitHeight,
             repeat: ImageRepeat.repeat,
+            opacity: 0.4,
           ),
         ),
         padding: const EdgeInsets.all(20),
@@ -60,8 +61,8 @@ class _SearchPageState extends State<SearchPage> {
                   ..color = Colors.blue[100]!,
               ),
               colors: const [
-                Colors.white,
-                Colors.blueAccent,
+                Color.fromARGB(255, 89, 197, 246),
+                Color.fromARGB(255, 0, 88, 239),
               ],
             ),
             Container(

@@ -18,11 +18,10 @@ class _LibraryPageState extends State<LibraryPage> {
         width: MediaQuery.of(context).size.width,
         child: GridView.builder(
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 5),
-          itemCount: 300,
-          // shrinkWrap: true,
+            crossAxisCount: 5,
+          ),
+          itemCount: 10,
           scrollDirection: Axis.vertical,
-          //separatorBuilder: (_, __) => const SizedBox(width: 24),
           itemBuilder: (BuildContext context, int index) {
             return Card(
               color: Colors.black,
