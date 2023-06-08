@@ -1,3 +1,4 @@
+import 'package:bookworm/pages/details_page.dart';
 import 'package:bookworm/pages/library_page.dart';
 import 'package:flutter/material.dart';
 
@@ -23,7 +24,7 @@ class BookWidget extends StatelessWidget {
           Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const LibraryPage(),
+                builder: (context) => const DetailsBook(),
               ));
         },
         title: Row(
@@ -31,8 +32,8 @@ class BookWidget extends StatelessWidget {
           children: [
             Image.network(
               cape ?? "",
-              height: 150,
-              width: 100,
+              height: 200,
+              width: 150,
               fit: BoxFit.cover,
               errorBuilder: (_, __, ___) => const Align(
                 alignment: Alignment.center,
@@ -53,7 +54,7 @@ class BookWidget extends StatelessWidget {
                     child: Text(
                       title ?? "",
                       maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
+                      overflow: TextOverflow.ellipsis, style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ),
                   Padding(
@@ -67,10 +68,10 @@ class BookWidget extends StatelessWidget {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsets.only(left: 16, right: 16, top: 16),
+                        const EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 16 ),
                     child: Text(
                       description ?? "",
-                      maxLines: 4,
+                      maxLines: 5,
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
@@ -86,7 +87,7 @@ class BookWidget extends StatelessWidget {
                     child: Text(
                       authors ?? "",
                       maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
+                      overflow: TextOverflow.ellipsis, style: TextStyle(fontStyle: FontStyle.italic),
                     ),
                   ),
                   Padding(

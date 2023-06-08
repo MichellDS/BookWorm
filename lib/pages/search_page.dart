@@ -96,7 +96,7 @@ class _SearchPageState extends State<SearchPage> {
                   String cape;
                   cape = imageLinks.toString();
 
-                  return new BookWidget(
+                  return BookWidget(
                     title: books[index].volumeInfo.title,
                     subtitle: books[index].volumeInfo.subtitle,
                     cape: cape,
