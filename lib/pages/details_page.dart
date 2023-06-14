@@ -20,7 +20,7 @@ class DetailsBook extends StatelessWidget {
                   children: [
                     IconButton(
                       tooltip: 'Voltar',
-                      onPressed: (){Navigator.push(context, 
+                      onPressed: (){Navigator.pop(context, 
                       MaterialPageRoute(
                         builder: (context) => SearchPage(),
                         ),
