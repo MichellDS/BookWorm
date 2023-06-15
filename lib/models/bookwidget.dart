@@ -1,5 +1,4 @@
 import 'package:bookworm/pages/details_page.dart';
-import 'package:bookworm/pages/library_page.dart';
 import 'package:flutter/material.dart';
 
 class BookWidget extends StatelessWidget {
@@ -54,7 +53,7 @@ class BookWidget extends StatelessWidget {
                     child: Text(
                       title ?? "",
                       maxLines: 1,
-                      overflow: TextOverflow.ellipsis, style: TextStyle(fontWeight: FontWeight.bold),
+                      overflow: TextOverflow.ellipsis, style: const TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ),
                   Padding(
@@ -87,7 +86,7 @@ class BookWidget extends StatelessWidget {
                     child: Text(
                       authors ?? "",
                       maxLines: 1,
-                      overflow: TextOverflow.ellipsis, style: TextStyle(fontStyle: FontStyle.italic),
+                      overflow: TextOverflow.ellipsis, style: const TextStyle(fontStyle: FontStyle.italic),
                     ),
                   ),
                   Padding(
