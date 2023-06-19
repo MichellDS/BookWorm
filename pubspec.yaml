@@ -14,12 +14,13 @@ dependencies:
   google_books_api: ^1.0.1
   simple_gradient_text: ^1.2.4
   window_manager: ^0.3.4
-  
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
+  flutter_localizations:
+    sdk: flutter
 
   flutter_launcher_icons: "^0.12.0"
 
@@ -49,6 +50,6 @@ flutter:
   assets:
     - assets/book.png
     - assets/bookshelf.png
-
-
-
+    - assets/lang/
+flutter_intl:
+  enabled: true

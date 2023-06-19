@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:window_manager/window_manager.dart';
 import 'pages/main_page.dart';
 
+
+
 void main() {
   WindowOptions windowOptions = WindowOptions(
       windowButtonVisibility: true,
@@ -21,6 +23,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      localizationsDelegates: [
+        S.delegate,
+      ],
+      supportedLocales: S.delegate.supportedLocales,
       debugShowCheckedModeBanner: false,
       title: 'BookWorm',
       theme: ThemeData(primarySwatch: Colors.blue),
