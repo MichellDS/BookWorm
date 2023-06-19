@@ -50,6 +50,6 @@ flutter:
   assets:
     - assets/book.png
     - assets/bookshelf.png
-    - assets/lang/
+    
 flutter_intl:
   enabled: true
