@@ -1,17 +1,14 @@
 import 'package:bookworm/pages/details_page.dart';
 import 'package:flutter/material.dart';
+import 'package:bookworm/models/mybooks.dart';
 
 class BookWidget extends StatelessWidget {
-  const BookWidget(
-      {super.key,
-      this.title,
-      this.subtitle,
-      this.cape,
-      this.authors,
-      this.categories,
-      this.description});
+  const BookWidget({
+    super.key,
+    this.mybooks,
+  });
 
-  final dynamic title, subtitle, cape, authors, categories, description;
+  final MyBooks? mybooks;
 
   @override
   Widget build(BuildContext context) {
@@ -23,14 +20,16 @@ class BookWidget extends StatelessWidget {
           Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const DetailsBook(),
+                builder: (context) => DetailsBook(
+                  detabooks: mybooks,
+                ),
               ));
         },
         title: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Image.network(
-              cape ?? "",
+              mybooks!.cape ?? "",
               height: 200,
               width: 150,
               fit: BoxFit.cover,
@@ -51,25 +50,26 @@ class BookWidget extends StatelessWidget {
                     padding:
                         const EdgeInsets.only(left: 16, right: 16, top: 16),
                     child: Text(
-                      title ?? "",
+                      mybooks!.title ?? "",
                       maxLines: 1,
-                      overflow: TextOverflow.ellipsis, style: const TextStyle(fontWeight: FontWeight.bold),
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(
                         left: 16, right: 16, top: 4, bottom: 16),
                     child: Text(
-                      subtitle ?? "",
+                      mybooks!.subtitle ?? "",
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
                   Padding(
-                    padding:
-                        const EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 16 ),
+                    padding: const EdgeInsets.only(
+                        left: 16, right: 16, top: 16, bottom: 16),
                     child: Text(
-                      description ?? "",
+                      mybooks!.description ?? "",
                       maxLines: 5,
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -84,15 +84,16 @@ class BookWidget extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(left: 16, right: 16, top: 8),
                     child: Text(
-                      authors ?? "",
+                      mybooks!.authors ?? "",
                       maxLines: 1,
-                      overflow: TextOverflow.ellipsis, style: const TextStyle(fontStyle: FontStyle.italic),
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(fontStyle: FontStyle.italic),
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 16, right: 16, top: 8),
                     child: Text(
-                      categories ?? "",
+                      mybooks!.categories ?? "",
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),

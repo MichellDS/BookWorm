@@ -1,3 +1,4 @@
+import 'package:bookworm/models/mybooks.dart';
 import 'package:flutter/material.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'package:google_books_api/google_books_api.dart';
@@ -97,12 +98,15 @@ class _SearchPageState extends State<SearchPage> {
                   cape = imageLinks.toString();
 
                   return BookWidget(
-                    title: books[index].volumeInfo.title,
-                    subtitle: books[index].volumeInfo.subtitle,
-                    cape: cape,
-                    authors: books[index].volumeInfo.authors.join(', '),
-                    categories: books[index].volumeInfo.categories.join(', '),
-                    description: books[index].volumeInfo.description,
+                    mybooks: MyBooks(
+                      id: books[index].id,
+                      title: books[index].volumeInfo.title,
+                      subtitle: books[index].volumeInfo.subtitle,
+                      cape: cape,
+                      authors: books[index].volumeInfo.authors.join(', '),
+                      categories: books[index].volumeInfo.categories.join(', '),
+                      description: books[index].volumeInfo.description,
+                    ),
                   );
                 },
               ),

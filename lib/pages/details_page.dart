@@ -1,9 +1,12 @@
+import 'package:bookworm/models/mybooks.dart';
 import 'package:bookworm/pages/search_page.dart';
 import 'package:flutter/material.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 
 class DetailsBook extends StatefulWidget {
-  const DetailsBook({super.key});
+  const DetailsBook({super.key, required this.detabooks});
+
+  final MyBooks? detabooks;
 
   @override
   State<DetailsBook> createState() => _DetailsBookState();
@@ -95,7 +98,7 @@ class _DetailsBookState extends State<DetailsBook> {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(16),
                   child: Image.network(
-                    'https://i.pinimg.com/564x/6d/e7/a7/6de7a770ff977eaef89ae40744447bba.jpg',
+                    widget.detabooks!.cape!,
                     width: 110,
                     height: 140,
                     fit: BoxFit.cover,
