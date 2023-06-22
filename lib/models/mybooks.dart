@@ -2,7 +2,7 @@ import 'package:floor/floor.dart';
 
 @entity
 class MyBooks {
-  @PrimaryKey(autoGenerate: true)
+  @PrimaryKey(autoGenerate: false)
   String? id;
   String? title;
   String? subtitle;

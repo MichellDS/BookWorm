@@ -27,10 +27,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      localizationsDelegates: const [
-        S.delegate,
-      ],
-      supportedLocales: S.delegate.supportedLocales,
+      // localizationsDelegates: const [
+      //   S.delegate,
+      // ],
+      // supportedLocales: S.delegate.supportedLocales,
       debugShowCheckedModeBanner: false,
       title: 'BookWorm',
       theme: ThemeData(primarySwatch: Colors.blue),
