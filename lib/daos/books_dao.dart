@@ -5,7 +5,7 @@ import '../models/mybooks.dart';
 @dao
 abstract class MyBooksDao {
   @Query('SELECT * FROM MyBooks')
-  Future<List<String>> findAllBooks();
+  Future<List<MyBooks>> findAllBooks();
 
   @Query('SELECT title FROM MyBooks')
   Future<List<String>> findAllBooksTitles();

@@ -21,7 +21,7 @@ class BookWidget extends StatelessWidget {
               context,
               MaterialPageRoute(
                 builder: (context) => DetailsBook(
-                  detabooks: mybooks,
+                  detabook: mybooks,
                 ),
               ));
         },

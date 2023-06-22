@@ -126,9 +126,16 @@ class _$MyBooksDao extends MyBooksDao {
   final InsertionAdapter<MyBooks> _myBooksInsertionAdapter;
 
   @override
-  Future<List<String>> findAllBooks() async {
+  Future<List<MyBooks>> findAllBooks() async {
     return _queryAdapter.queryList('SELECT * FROM MyBooks',
-        mapper: (Map<String, Object?> row) => row.values.first as String);
+        mapper: (Map<String, Object?> row) => MyBooks(
+            id: row['id'] as String?,
+            title: row['title'] as String?,
+            subtitle: row['subtitle'] as String?,
+            cape: row['cape'] as String?,
+            authors: row['authors'] as String?,
+            categories: row['categories'] as String?,
+            description: row['description'] as String?));
   }
 
   @override
