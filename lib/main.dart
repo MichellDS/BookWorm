@@ -27,24 +27,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-<<<<<<< HEAD
-      // localizationsDelegates: [
-      //   S.delegate,
-      // ],
-      // 
-=======
-      // localizationsDelegates: const [
-      //   S.delegate,
-      // ],
-      // supportedLocales: S.delegate.supportedLocales,
->>>>>>> 9dd3a4772b5ff9337e4a8a2f7997e5fe5f852405
-      debugShowCheckedModeBanner: false,
-      title: 'BookWorm',
-      theme: ThemeData(primarySwatch: Colors.blue),
-      home: const MainPage(),
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales
-
-    );
+        debugShowCheckedModeBanner: false,
+        title: 'BookWorm',
+        theme: ThemeData(primarySwatch: Colors.blue),
+        home: const MainPage(),
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales);
   }
 }

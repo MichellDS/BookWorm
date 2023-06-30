@@ -18,12 +18,13 @@ class BookWidget extends StatelessWidget {
       child: ListTile(
         onTap: () {
           Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => DetailsBook(
-                  detabook: mybooks,
-                ),
-              ));
+            context,
+            MaterialPageRoute(
+              builder: (context) => DetailsBook(
+                detabook: mybooks,
+              ),
+            ),
+          );
         },
         title: Row(
           crossAxisAlignment: CrossAxisAlignment.start,

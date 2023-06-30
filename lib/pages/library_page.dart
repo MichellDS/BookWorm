@@ -38,83 +38,52 @@ class _LibraryPageState extends State<LibraryPage> {
                   scrollDirection: Axis.vertical,
                   itemBuilder: (_, index) {
                     return ListTile(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => DetailsBook(
-                                detabook: MyBooks(
-                                    id: '',
-                                    title: snapshot.data![index].title,
-                                    subtitle: '',
-                                    cape: '',
-                                    authors: '',
-                                    categories: '',
-                                    description: ''),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => DetailsBook(
+                              detabook: MyBooks(
+                                id: '',
+                                title: snapshot.data![index].title,
+                                subtitle: snapshot.data![index].subtitle,
+                                cape: snapshot.data![index].cape,
+                                authors: snapshot.data![index].authors,
+                                categories: snapshot.data![index].categories,
+                                description: snapshot.data![index].description,
                               ),
                             ),
-                          );
-                        },
-                        title: Card(
-                          color: Colors.blueGrey,
-                          child: Center(
-                            child: Text('${index + 1}'),
                           ),
-                        )
-
-                        // color: Colors.black,
-                        // child: Center(
-                        //   child: Text('${index + 1}'),
-                        // ),
                         );
+                      },
+                      title: Card(
+                        child: Align(
+                          alignment: Alignment.center,
+                          child: ClipRRect(
+                            child: Image.network(
+                              snapshot.data![index].cape!,
+                              width: 200,
+                              height: 200,
+                              fit: BoxFit.cover,
+                              errorBuilder: (_, __, ___) => const Align(
+                                alignment: Alignment.center,
+                                child: Icon(
+                                  Icons.image_not_supported,
+                                  size: 100,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    );
                   },
                 );
               } else {
                 return const CircularProgressIndicator();
               }
             },
-          )
-
-          //  GridView.builder(
-          //   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          //     crossAxisCount: 6,
-          //   ),
-          //   itemCount: , //length
-          //   scrollDirection: Axis.vertical,
-          //   itemBuilder: (_, index) {
-          //     return ListTile(
-          //         onTap: () {
-          //           Navigator.push(
-          //             context,
-          //             MaterialPageRoute(
-          //               builder: (context) => DetailsBook(
-          //                 detalhebook: MyBooks(
-          //                     id: '',
-          //                     title: '',
-          //                     subtitle: '',
-          //                     cape: '',
-          //                     authors: '',
-          //                     categories: '',
-          //                     description: ''),
-          //               ),
-          //             ),
-          //           );
-          //         },
-          //         title: Card(
-          //           color: Colors.blueGrey,
-          //           child: Center(
-          //             child: Text('${index + 1}'),
-          //           ),
-          //         )
-
-          //         // color: Colors.black,
-          //         // child: Center(
-          //         //   child: Text('${index + 1}'),
-          //         // ),
-          //         );
-          //   },
-          // ),
-          ),
+          )),
     );
   }
 }

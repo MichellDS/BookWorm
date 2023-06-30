@@ -85,7 +85,7 @@ class _$AppDatabase extends AppDatabase {
       },
       onCreate: (database, version) async {
         await database.execute(
-            'CREATE TABLE IF NOT EXISTS `MyBooks` (`id` TEXT PRIMARY KEY AUTOINCREMENT, `title` TEXT, `subtitle` TEXT, `cape` TEXT, `authors` TEXT, `categories` TEXT, `description` TEXT)');
+            'CREATE TABLE IF NOT EXISTS `MyBooks` (`id` TEXT, `title` TEXT, `subtitle` TEXT, `cape` TEXT, `authors` TEXT, `categories` TEXT, `description` TEXT, PRIMARY KEY (`id`))');
 
         await callback?.onCreate?.call(database, version);
       },
@@ -163,16 +163,9 @@ class _$MyBooksDao extends MyBooksDao {
   }
 
   @override
-  Future<MyBooks?> findAllBooksbyId(int id) async {
+  Future<bool?> findAllBooksbyId(String id) async {
     return _queryAdapter.query('SELECT * FROM MyBooks WHERE id = ?1',
-        mapper: (Map<String, Object?> row) => MyBooks(
-            id: row['id'] as String?,
-            title: row['title'] as String?,
-            subtitle: row['subtitle'] as String?,
-            cape: row['cape'] as String?,
-            authors: row['authors'] as String?,
-            categories: row['categories'] as String?,
-            description: row['description'] as String?),
+        mapper: (Map<String, Object?> row) => (row.values.first as int) != 0,
         arguments: [id]);
   }
 

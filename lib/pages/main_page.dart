@@ -3,7 +3,9 @@ import 'package:bookworm/pages/search_page.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatefulWidget {
-  const MainPage({super.key});
+  const MainPage({
+    super.key,
+  });
 
   @override
   State<MainPage> createState() => _MainPageState();
@@ -11,7 +13,10 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   int _currentPage = 0;
-  final List<Widget> _pages = const [SearchPage(), LibraryPage()];
+  final List<Widget> _pages = const [
+    SearchPage(),
+    LibraryPage(),
+  ];
 
   void _onItemTapped(int index) {
     setState(() {

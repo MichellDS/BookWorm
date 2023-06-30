@@ -2,12 +2,8 @@ import 'package:bookworm/pages/search_page.dart';
 import 'package:flutter/material.dart';
 import 'package:bookworm/models/mybooks.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
-<<<<<<< HEAD
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
-=======
 import 'package:bookworm/daos/database.dart';
->>>>>>> 9dd3a4772b5ff9337e4a8a2f7997e5fe5f852405
 
 class DetailsBook extends StatefulWidget {
   const DetailsBook({super.key, this.detabook});
