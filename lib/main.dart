@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:window_manager/window_manager.dart';
 import 'pages/main_page.dart';
-import 'generated/l10n.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,14 +27,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      localizationsDelegates: [
-        S.delegate,
-      ],
-      supportedLocales: S.delegate.supportedLocales,
+      // localizationsDelegates: [
+      //   S.delegate,
+      // ],
+      // 
       debugShowCheckedModeBanner: false,
       title: 'BookWorm',
       theme: ThemeData(primarySwatch: Colors.blue),
       home: const MainPage(),
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales
+
     );
   }
 }

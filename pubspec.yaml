@@ -24,6 +24,8 @@ dev_dependencies:
 
   flutter_localizations:
     sdk: flutter
+  intl: ^0.18.0
+
 
   flutter_launcher_icons: "^0.12.0"
 
@@ -49,10 +51,10 @@ flutter_icons:
 
 flutter:
   uses-material-design: true
+  generate: true
 
   assets:
     - assets/book.png
     - assets/bookshelf.png
     
-flutter_intl:
-  enabled: true
+

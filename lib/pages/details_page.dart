@@ -2,6 +2,8 @@ import 'package:bookworm/pages/search_page.dart';
 import 'package:flutter/material.dart';
 import 'package:bookworm/models/mybooks.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class DetailsBook extends StatefulWidget {
   const DetailsBook({super.key, this.detabooks});
@@ -67,7 +69,7 @@ class _DetailsBookState extends State<DetailsBook> {
                       ],
                     ),
                     Tooltip(
-                      message: 'Adicionar Livro',
+                      message: AppLocalizations.of(context)!.hello,
                       triggerMode: TooltipTriggerMode.tap,
                       child: IconButton(
                         onPressed: () {
