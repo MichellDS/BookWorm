@@ -81,7 +81,7 @@ class _DetailsBookState extends State<DetailsBook> {
                       ],
                     ),
                     Tooltip(
-                      message: AppLocalizations.of(context)!.hello,
+                      message: AppLocalizations.of(context)!.msg_dpsave,
                       triggerMode: TooltipTriggerMode.tap,
                       child: IconButton(
                         onPressed: () {

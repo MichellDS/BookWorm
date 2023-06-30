@@ -1,9 +1,9 @@
 {
-    "msg_dpsave": "Salvar"
-    "msg_mpsearch": "Pesquisa"
-	"msg_mplibrary": "Biblioteca"
-    "msg_sptitle": "Titulo dos Livros"
-    "msg_dpback": "Voltar"
+    "msg_dpsave": "Salvar",
+    "msg_mpsearch": "Pesquisa",
+	"msg_mplibrary": "Biblioteca",
+    "msg_sptitle": "Titulo dos Livros",
+    "msg_dpback": "Voltar",
 	"msg_dpauthors": "\n\n  Autores(as):"
     
  }

@@ -1,0 +1,8 @@
+{
+    "msg_dpsave": "Ahorrar",
+    "msg_mpsearch": "Buscar",
+	"msg_mplibrary": "Biblioteca",
+    "msg_sptitle": "Titulo del Libros",
+    "msg_dpback": "Volvar",
+	"msg_dpauthors": "\n\n  Autor:"
+}

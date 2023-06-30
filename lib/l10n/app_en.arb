@@ -1,3 +1,8 @@
 {
-    "hello": "Save"
+    "msg_dpsave": "Save",
+    "msg_mpsearch": "Search",
+	"msg_mplibrary": "Library",
+    "msg_sptitle": "Book Titles",
+    "msg_dpback": "Back",
+	"msg_dpauthors": "\n\n  Authors:"
  }
