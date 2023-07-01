@@ -178,9 +178,16 @@ class _$MyBooksDao extends MyBooksDao {
   }
 
   @override
-  Future<bool?> findAllBooksbyId(String id) async {
+  Future<MyBooks?> findAllBooksbyId(String id) async {
     return _queryAdapter.query('SELECT * FROM MyBooks WHERE id = ?1',
-        mapper: (Map<String, Object?> row) => (row.values.first) != null,
+        mapper: (Map<String, Object?> row) => MyBooks(
+            id: row['id'] as String?,
+            title: row['title'] as String?,
+            subtitle: row['subtitle'] as String?,
+            cape: row['cape'] as String?,
+            authors: row['authors'] as String?,
+            categories: row['categories'] as String?,
+            description: row['description'] as String?),
         arguments: [id]);
   }
 

@@ -33,9 +33,9 @@ class _DetailsBookState extends State<DetailsBook> {
   }
 
   Future<bool?> temID() async {
-    var result = await db.myBooksDao.findAllBooksbyId(widget.detabook!.id!);
+    var resultBook = await db.myBooksDao.findAllBooksbyId(widget.detabook!.id!);
     setState(() {
-      salvar = result ?? false;
+      salvar = resultBook == null ? false : true;
     });
   }
 

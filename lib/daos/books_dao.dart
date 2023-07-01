@@ -20,7 +20,7 @@ abstract class MyBooksDao {
   Future<List<String>> findAllBooksDescription();
 
   @Query('SELECT * FROM MyBooks WHERE id = :id')
-  Future<bool?> findAllBooksbyId(String id);
+  Future<MyBooks?> findAllBooksbyId(String id);
 
   @insert
   Future<void> insertBooks(MyBooks mybooks);
