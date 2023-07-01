@@ -115,6 +115,19 @@ class _$MyBooksDao extends MyBooksDao {
                   'authors': item.authors,
                   'categories': item.categories,
                   'description': item.description
+                }),
+        _myBooksDeletionAdapter = DeletionAdapter(
+            database,
+            'MyBooks',
+            ['id'],
+            (MyBooks item) => <String, Object?>{
+                  'id': item.id,
+                  'title': item.title,
+                  'subtitle': item.subtitle,
+                  'cape': item.cape,
+                  'authors': item.authors,
+                  'categories': item.categories,
+                  'description': item.description
                 });
 
   final sqflite.DatabaseExecutor database;
@@ -124,6 +137,8 @@ class _$MyBooksDao extends MyBooksDao {
   final QueryAdapter _queryAdapter;
 
   final InsertionAdapter<MyBooks> _myBooksInsertionAdapter;
+
+  final DeletionAdapter<MyBooks> _myBooksDeletionAdapter;
 
   @override
   Future<List<MyBooks>> findAllBooks() async {
@@ -172,5 +187,10 @@ class _$MyBooksDao extends MyBooksDao {
   @override
   Future<void> insertBooks(MyBooks mybooks) async {
     await _myBooksInsertionAdapter.insert(mybooks, OnConflictStrategy.abort);
+  }
+
+  @override
+  Future<void> deleteBooks(MyBooks myBooks) async {
+    await _myBooksDeletionAdapter.delete(myBooks);
   }
 }
