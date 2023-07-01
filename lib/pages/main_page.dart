@@ -1,5 +1,6 @@
 import 'package:bookworm/pages/library_page.dart';
 import 'package:bookworm/pages/search_page.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatefulWidget {
@@ -37,14 +38,14 @@ class _MainPageState extends State<MainPage> {
         fixedColor: Colors.white,
         iconSize: 30,
         currentIndex: _currentPage,
-        items: const <BottomNavigationBarItem>[
+        items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'Search',
+            icon: const Icon(Icons.search),
+            label: AppLocalizations.of(context)!.msg_mpsearch,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.book),
-            label: 'Library',
+            icon: const Icon(Icons.book),
+            label: AppLocalizations.of(context)!.msg_mplibrary,
           )
         ],
         onTap: _onItemTapped,

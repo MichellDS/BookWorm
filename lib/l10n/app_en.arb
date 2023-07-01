@@ -4,5 +4,7 @@
 	"msg_mplibrary": "Library",
     "msg_sptitle": "Book Titles",
     "msg_dpback": "Back",
-	"msg_dpauthors": "\n\n  Authors:"
+	"msg_dpauthors": "\n\n  Authors:",
+    "msg_dpdetails": "Details"
+    
  }

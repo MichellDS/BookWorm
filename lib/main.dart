@@ -8,10 +8,11 @@ void main() async {
   await windowManager.ensureInitialized();
 
   WindowOptions windowOptions = const WindowOptions(
-      windowButtonVisibility: true,
-      center: true,
-      size: Size(1024, 768),
-      minimumSize: Size(1024, 768));
+    windowButtonVisibility: true,
+    center: true,
+    size: Size(1280, 900),
+  );
+
   windowManager.waitUntilReadyToShow(windowOptions, () async {
     await windowManager.show();
     await windowManager.setMaximizable(false);

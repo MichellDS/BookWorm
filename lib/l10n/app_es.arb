@@ -5,6 +5,6 @@
     "msg_sptitle": "Titulo del Libros",
     "msg_dpback": "Volvar",
 	"msg_dpauthors": "\n\n  Autor:",
-    "msg_details": "Detalles"
+    "msg_dpdetails": "Detalles"
     
 }

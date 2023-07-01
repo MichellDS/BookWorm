@@ -4,6 +4,7 @@
 	"msg_mplibrary": "Biblioteca",
     "msg_sptitle": "Titulo dos Livros",
     "msg_dpback": "Voltar",
-	"msg_dpauthors": "\n\n  Autores(as):"
+	"msg_dpauthors": "\n\n  Autores(as):",
+    "msg_dpdetails": "Detalhes"
     
  }

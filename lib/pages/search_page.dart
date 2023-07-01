@@ -63,7 +63,7 @@ class _SearchPageState extends State<SearchPage> {
                   ..color = Colors.blue[100]!,
               ),
               colors: const [
-                Color.fromARGB(255, 89, 197, 246),
+                Color.fromARGB(255, 147, 246, 89),
                 Color.fromARGB(255, 0, 88, 239),
               ],
             ),

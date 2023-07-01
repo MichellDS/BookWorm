@@ -16,6 +16,7 @@ class DetailsBook extends StatefulWidget {
 
 class _DetailsBookState extends State<DetailsBook> {
   bool salvar = false;
+  // ignore: prefer_typing_uninitialized_variables
   late final db;
 
   @override
@@ -53,6 +54,7 @@ class _DetailsBookState extends State<DetailsBook> {
         ),
         child: SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Padding(
                 padding: const EdgeInsets.only(left: 24, right: 24, top: 34),
@@ -73,11 +75,11 @@ class _DetailsBookState extends State<DetailsBook> {
                       icon: const Icon(
                         Icons.arrow_back,
                         color: Colors.white,
-                        size: 50,
+                        size: 40,
                       ),
                     ),
                     GradientText(
-                      'Detalhes',//
+                      AppLocalizations.of(context)!.msg_dpdetails,
                       style: TextStyle(
                         fontSize: 80,
                         foreground: Paint()
@@ -91,7 +93,8 @@ class _DetailsBookState extends State<DetailsBook> {
                       ],
                     ),
                     Tooltip(
-                      message: AppLocalizations.of(context)!.msg_dpsave,//AppLocalizations.of(context)!
+                      message: AppLocalizations.of(context)!
+                          .msg_dpsave, //AppLocalizations.of(context)!
                       triggerMode: TooltipTriggerMode.tap,
                       child: IconButton(
                         onPressed: () {
@@ -108,7 +111,7 @@ class _DetailsBookState extends State<DetailsBook> {
                         },
                         icon: Icon(
                           salvar ? Icons.bookmark : Icons.bookmark_outline,
-                          size: 30,
+                          size: 40,
                           color: const Color.fromARGB(255, 177, 1, 1),
                         ),
                       ),
@@ -182,7 +185,7 @@ class _DetailsBookState extends State<DetailsBook> {
                                 ),
                                 Text(
                                   AppLocalizations.of(context)!.msg_dpauthors,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold),
                                 ),

@@ -32,7 +32,7 @@ class _LibraryPageState extends State<LibraryPage> {
                 //print(snapshot.data!);
                 return GridView.builder(
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 6,
+                    crossAxisCount: 5,
                   ),
                   itemCount: snapshot.data!.length, //length
                   scrollDirection: Axis.vertical,
@@ -57,14 +57,15 @@ class _LibraryPageState extends State<LibraryPage> {
                         );
                       },
                       title: Card(
+                        color: const Color.fromARGB(255, 171, 202, 255),
                         child: Align(
                           alignment: Alignment.center,
                           child: ClipRRect(
                             child: Image.network(
                               snapshot.data![index].cape!,
                               width: 200,
-                              height: 200,
-                              fit: BoxFit.cover,
+                              height: 300,
+                              fit: BoxFit.contain,
                               errorBuilder: (_, __, ___) => const Align(
                                 alignment: Alignment.center,
                                 child: Icon(
