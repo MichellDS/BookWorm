@@ -44,7 +44,7 @@ class _LibraryPageState extends State<LibraryPage> {
                           MaterialPageRoute(
                             builder: (context) => DetailsBook(
                               detabook: MyBooks(
-                                id: '',
+                                id: snapshot.data![index].id,
                                 title: snapshot.data![index].title,
                                 subtitle: snapshot.data![index].subtitle,
                                 cape: snapshot.data![index].cape,

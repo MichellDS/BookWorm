@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'package:google_books_api/google_books_api.dart';
 import 'package:bookworm/models/bookwidget.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
@@ -75,7 +76,7 @@ class _SearchPageState extends State<SearchPage> {
                   filled: true,
                   fillColor: Colors.white,
                   prefixIcon: const Icon(Icons.search),
-                  hintText: 'Titulo dos Livros',
+                  hintText: AppLocalizations.of(context)!.msg_sptitle,
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(50),
                       borderSide: const BorderSide(color: Colors.black)),

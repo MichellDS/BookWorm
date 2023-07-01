@@ -61,7 +61,7 @@ class _DetailsBookState extends State<DetailsBook> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     IconButton(
-                      tooltip: 'Voltar',
+                      tooltip: AppLocalizations.of(context)!.msg_dpback,
                       onPressed: () {
                         Navigator.pop(
                           context,
@@ -77,7 +77,7 @@ class _DetailsBookState extends State<DetailsBook> {
                       ),
                     ),
                     GradientText(
-                      'Detalhes',
+                      'Detalhes',//
                       style: TextStyle(
                         fontSize: 80,
                         foreground: Paint()
@@ -91,7 +91,7 @@ class _DetailsBookState extends State<DetailsBook> {
                       ],
                     ),
                     Tooltip(
-                      message: AppLocalizations.of(context)!.msg_dpsave,
+                      message: AppLocalizations.of(context)!.msg_dpsave,//AppLocalizations.of(context)!
                       triggerMode: TooltipTriggerMode.tap,
                       child: IconButton(
                         onPressed: () {
@@ -180,8 +180,8 @@ class _DetailsBookState extends State<DetailsBook> {
                                     fontSize: 20,
                                   ),
                                 ),
-                                const Text(
-                                  '\n\n Autores(as): ',
+                                Text(
+                                  AppLocalizations.of(context)!.msg_dpauthors,
                                   style: TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold),
