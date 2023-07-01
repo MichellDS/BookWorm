@@ -180,7 +180,7 @@ class _$MyBooksDao extends MyBooksDao {
   @override
   Future<bool?> findAllBooksbyId(String id) async {
     return _queryAdapter.query('SELECT * FROM MyBooks WHERE id = ?1',
-        mapper: (Map<String, Object?> row) => (row.values.first as int) != 0,
+        mapper: (Map<String, Object?> row) => (row.values.first) != null,
         arguments: [id]);
   }
 

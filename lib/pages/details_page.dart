@@ -16,7 +16,6 @@ class DetailsBook extends StatefulWidget {
 
 class _DetailsBookState extends State<DetailsBook> {
   bool salvar = false;
-
   late final db;
 
   @override
@@ -26,19 +25,18 @@ class _DetailsBookState extends State<DetailsBook> {
   }
 
   initDb() async {
-    var dbTmp;
-    db = await $FloorAppDatabase.databaseBuilder('bookworm.db').build();
+    var dbTmp = await $FloorAppDatabase.databaseBuilder('bookworm.db').build();
     setState(() {
       db = dbTmp;
     });
+    temID();
   }
 
   Future<bool?> temID() async {
-    if (await db.myBooksDao.findAllBooksbyId(widget.detabook!.id!) == null) {
-      return salvar = false;
-    } else {
-      return salvar = true;
-    }
+    var result = await db.myBooksDao.findAllBooksbyId(widget.detabook!.id!);
+    setState(() {
+      salvar = result ?? false;
+    });
   }
 
   @override
