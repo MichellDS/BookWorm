@@ -26,7 +26,19 @@ class _DetailsBookState extends State<DetailsBook> {
   }
 
   initDb() async {
+    var dbTmp;
     db = await $FloorAppDatabase.databaseBuilder('bookworm.db').build();
+    setState(() {
+      db = dbTmp;
+    });
+  }
+
+  Future<bool?> temID() async {
+    if (await db.myBooksDao.findAllBooksbyId(widget.detabook!.id!) == null) {
+      return salvar = false;
+    } else {
+      return salvar = true;
+    }
   }
 
   @override
@@ -85,7 +97,7 @@ class _DetailsBookState extends State<DetailsBook> {
                       triggerMode: TooltipTriggerMode.tap,
                       child: IconButton(
                         onPressed: () {
-                          if (!salvar) {
+                          if (salvar == false) {
                             db.myBooksDao.insertBooks(widget.detabook!);
                           } else {
                             db.myBooksDao.deleteBooks(widget.detabook!);
