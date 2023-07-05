@@ -10,21 +10,20 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:google_books_api/google_books_api.dart';
 
 void main() {
-  test('search books', () async {
+  test('Procura livros pela API', () async {
     final List<Book> books = await const GoogleBooksApi().searchBooks(
-      'a',
-      maxResults: 20,
+      'casa',
+      maxResults: 10,
       printType: PrintType.books,
       orderBy: OrderBy.relevance,
     );
-    expect(books.length, 20);
+    expect(books.length, 10);
     // ignore: avoid_print
     print(books);
   });
 
   test('get book by id', () async {
-    final Book book = await const GoogleBooksApi().getBookById('H0taAAAAYAAJ');
-    expect(book.volumeInfo.title,
-        'A Study of Income and Expenditures in Sixty Colleges. Year 1953-54');
+    final Book book = await const GoogleBooksApi().getBookById('UKTJDwAAQBAJ');
+    expect(book.volumeInfo.title, 'Flutter na prática');
   });
 }
