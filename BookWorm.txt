@@ -1,0 +1,14 @@
+﻿BookWorm
+        
+        Era uma vez um apaixonado por livros chamado Lucas. Ele tinha uma extensa coleção de livros em sua estante, mas sempre enfrentava um desafio: muitas vezes esquecia quais livros já tinha lido ou comprado. Foi então que ele descobriu o mágico aplicativo chamado "BookWorm".
+O BookWorm era um companheiro perfeito para Lucas e todos os amantes de livros que enfrentavam o mesmo dilema. Com este aplicativo especial, Lucas poderia facilmente registrar todos os livros que possuía. Ele simplesmente insere o título do livro, e o BookWorm cuidava do resto.
+O aplicativo apresentava uma interface elegante e intuitiva, onde Lucas poderia visualizar sua coleção completa de livros. Além disso, o BookWorm mantinha um registro detalhado de todos os livros que ele já havia lido. Dessa forma, Lucas nunca mais compraria um livro repetido ou esqueceria de terminar uma leitura.
+Com o BookWorm, Lucas encontrou a solução perfeita para seu dilema literário. Agora, sua coleção estava organizada, suas leituras eram rastreadas e ele podia se aventurar em novos livros sem preocupações. O aplicativo tornou-se seu melhor amigo literário, sempre ao seu lado para ajudá-lo a explorar novos mundos, personagens fascinantes e histórias emocionantes.
+  
+
+  
+
+Não foram utilizados teste em específico na construção do projeto, apenas testes simples durante o processo, teste como saída de dados, resposta do sistema, verificação visual da estrutura do front, teste de conectividade com API.
+
+
+O projeto foi construído durante as os períodos designados em sala de aula, também em momentos assíncrono, com coordenação e comunicação via aplicativo de mensagem e de video chamada.
